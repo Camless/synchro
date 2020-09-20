@@ -13,7 +13,8 @@ Asking user for mood preferences / regular playlist usage
 ## Playlist List View
 
 "Hub" for user playlist selection
-Contains two types of playlists
+
+Contains two types of playlists:
 
 * Liked
 * User-Defined
@@ -27,13 +28,13 @@ Displays information about the album. Also lets user browse and play its items.
 
 Some of the technologies which I intend to incorporate into this project are as follows:
 
-* SwiftUI
+* **SwiftUI**
   * I want to test out the possibilities of UI Design from a non-UIKit perspective. Many elements from UIKit are transferable into SwiftUI, should the need arise to use them.
-* MongoDB / Realm
+* **MongoDB / Realm**
   * I'm more familiar with the Realm architecture rather than Firebase, so this was an arbitrary decision. That said, I wanted to learn MongoDB anyway since I don't know any database querying besides SQLAlchemy. Mongo is document-data based, or noSQL, which makes it easier to learn from its JSON-like format but might hinder my understanding of databases later on.
-* GraphQL / Apollo
+* **GraphQL / Apollo**
   * Apollo is just the mechanism to interact with GraphQL data through the iOS ecosystem, or more specifically the Swift language. Rather than trying the typical API endpoint fetching game, it'd be interesting to see how I can incorporate it since Mongo Realm offers their own GraphQL services and endpoints.
-* Docker
+* **Docker**
   * Is it possible to implement some containerization for this project? I don't understand enough about this technology to see if it would make sense. Certainly it won't be packaged into the product app but perhaps I could use it to do some sort of testing at some level. Not sure, will come back later.
 
 
