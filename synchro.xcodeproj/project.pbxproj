@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		07164C202516B2D500D90C89 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07164C1F2516B2D500D90C89 /* Realm.framework */; };
+		07164C222516B2F200D90C89 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07164C212516B2F200D90C89 /* RealmSwift.framework */; };
 		073A48E625149FB200921D2D /* synchroApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073A48E525149FB200921D2D /* synchroApp.swift */; };
 		073A48E825149FB200921D2D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073A48E725149FB200921D2D /* ContentView.swift */; };
 		073A48EA25149FB300921D2D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 073A48E925149FB300921D2D /* Assets.xcassets */; };
@@ -32,7 +34,22 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		07164C122516A91700D90C89 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 8;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		07164C1F2516B2D500D90C89 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
+		07164C212516B2F200D90C89 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = "<group>"; };
 		073A48E225149FB200921D2D /* synchro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = synchro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		073A48E525149FB200921D2D /* synchroApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = synchroApp.swift; sourceTree = "<group>"; };
 		073A48E725149FB200921D2D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -52,6 +69,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				07164C222516B2F200D90C89 /* RealmSwift.framework in Frameworks */,
+				07164C202516B2D500D90C89 /* Realm.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,6 +91,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		07164C0E2516A91600D90C89 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				07164C1F2516B2D500D90C89 /* Realm.framework */,
+				07164C212516B2F200D90C89 /* RealmSwift.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		073A48D925149FB200921D2D = {
 			isa = PBXGroup;
 			children = (
@@ -79,6 +107,7 @@
 				073A48F625149FB400921D2D /* synchroTests */,
 				073A490125149FB400921D2D /* synchroUITests */,
 				073A48E325149FB200921D2D /* Products */,
+				07164C0E2516A91600D90C89 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -140,6 +169,7 @@
 				073A48DE25149FB200921D2D /* Sources */,
 				073A48DF25149FB200921D2D /* Frameworks */,
 				073A48E025149FB200921D2D /* Resources */,
+				07164C122516A91700D90C89 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -157,6 +187,7 @@
 				073A48EF25149FB400921D2D /* Sources */,
 				073A48F025149FB400921D2D /* Frameworks */,
 				073A48F125149FB400921D2D /* Resources */,
+				07164C232516B39600D90C89 /* Realm App Workaround */,
 			);
 			buildRules = (
 			);
@@ -253,6 +284,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		07164C232516B39600D90C89 /* Realm App Workaround */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Realm App Workaround";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "bash \"${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework/strip-frameworks.sh\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		073A48DE25149FB200921D2D /* Sources */ = {
@@ -421,12 +473,17 @@
 				DEVELOPMENT_ASSET_PATHS = "\"synchro/Preview Content\"";
 				DEVELOPMENT_TEAM = R4UZ2G5NDA;
 				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = synchro/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = cs.camless.synchro;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -443,12 +500,17 @@
 				DEVELOPMENT_ASSET_PATHS = "\"synchro/Preview Content\"";
 				DEVELOPMENT_TEAM = R4UZ2G5NDA;
 				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = synchro/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = cs.camless.synchro;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -463,6 +525,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = R4UZ2G5NDA;
+				FRAMEWORK_SEARCH_PATHS = /Users/carlos/Swift/synchro;
 				INFOPLIST_FILE = synchroTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -485,6 +548,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = R4UZ2G5NDA;
+				FRAMEWORK_SEARCH_PATHS = /Users/carlos/Swift/synchro;
 				INFOPLIST_FILE = synchroTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
