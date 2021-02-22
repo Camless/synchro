@@ -40,4 +40,4 @@ Some of the technologies which I intend to incorporate into this project are as 
 
 ## Diagram of the Application Flow
 
-Create Diagram from Start to End
+Link to the [Wireframe](https://whimsical.com/synchro-H4L45LKzkcG6CFVjWG87eA).
